@@ -176,7 +176,8 @@ nav {
 
 
 .card,
-.portfolio-card {
+.portfolio-card,
+.project-card {
     background: var(--white);
     border: 1px solid var(--border);
     padding: 35px;
