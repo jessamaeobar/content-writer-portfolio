@@ -194,7 +194,8 @@ nav {
 
 
 .card h3,
-.portfolio-card h3 {
+.portfolio-card h3,
+.project-card h3 {
     font-family: "Playfair Display", serif;
     font-size: 25px;
     margin-bottom: 15px;
@@ -203,6 +204,7 @@ nav {
 
 .card p,
 .portfolio-card p,
+.project-card p,
 .portfolio-card span {
     color: var(--muted);
 }
