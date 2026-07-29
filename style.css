@@ -521,3 +521,13 @@ font-size:36px;
     margin-top: 50px;
     margin-bottom: 20px;
 }
+
+    .article-content p {
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.article-content h3 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
