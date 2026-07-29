@@ -430,4 +430,45 @@ font-size:36px;
 
 }
 
+.sample-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.portfolio-project {
+    margin-bottom: 70px;
+}
+
+.portfolio-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 70px 0;
+}
+
+.project-category {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.article-content {
+    line-height: 1.8;
+}
+
+.article-content h3 {
+    margin-top: 35px;
+}
+
+.article-content ul {
+    margin: 20px 0;
+    padding-left: 25px;
+}
+
+.article-content li {
+    margin-bottom: 10px;
 }
