@@ -474,13 +474,22 @@ font-size:36px;
     line-height: 1.8;
 }
 
+.article-content p {
+    margin-bottom: 25px;
+}
+
 .article-content h3 {
-    margin-top: 35px;
+    margin-top: 45px;
+    margin-bottom: 20px;
 }
 
 .article-content ul {
-    margin: 20px 0;
+    margin: 20px 0 30px;
     padding-left: 25px;
+}
+
+.article-content li {
+    margin-bottom: 12px;
 }
 
 .article-content li {
