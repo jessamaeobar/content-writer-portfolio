@@ -187,7 +187,8 @@ nav {
 
 
 .card:hover,
-.portfolio-card:hover {
+.portfolio-card:hover,
+.project-card:hover {
     transform: translateY(-5px);
 }
 
