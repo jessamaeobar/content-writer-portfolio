@@ -209,6 +209,16 @@ nav {
     color: var(--muted);
 }
 
+.project-card .project-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-card .project-link:hover {
+    text-decoration: underline;
+}
+
 
 .portfolio-card span {
     display: block;
