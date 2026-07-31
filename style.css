@@ -451,12 +451,14 @@ blockquote {
 }
 
 .article-content ul {
-    margin: 20px 0 30px;
-    padding-left: 40px;
+    margin: 25px 0;
+    padding-left: 2.5rem;
+    list-style-position: outside;
 }
 
 .article-content li {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    padding-left: 8px;
     line-height: 1.8;
 }
 
