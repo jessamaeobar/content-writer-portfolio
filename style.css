@@ -515,3 +515,12 @@ blockquote {
     font-style: italic;
     font-size: 18px;
 }
+
+.article-content blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+    margin: 45px 0;
+    color: var(--text);
+    font-style: italic;
+    font-size: 18px;
+}
