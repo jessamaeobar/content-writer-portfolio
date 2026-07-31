@@ -429,6 +429,9 @@ blockquote {
 
 }
 
+
+/* Article Pages */
+
 .article-content {
     line-height: 1.8;
 }
@@ -443,7 +446,7 @@ blockquote {
     font-family: "Playfair Display", serif;
     font-size: 28px;
     color: var(--text);
-    margin-top: 50px;
+    margin-top: 45px;
     margin-bottom: 20px;
 }
 
@@ -464,119 +467,4 @@ blockquote {
     color: var(--text);
     font-style: italic;
     font-size: 18px;
-}
-    
-@media(max-width:768px){
-
-.sample-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.portfolio-header h1{
-
-font-size:36px;
-
-}
-
-.sample-label {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    color: #666;
-}
-
-.portfolio-project {
-    margin-bottom: 70px;
-}
-
-.portfolio-divider {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 70px 0;
-}
-
-.project-category {
-    font-style: italic;
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.article-content {
-    line-height: 1.8;
-}
-
-.article-content p {
-    margin-bottom: 25px;
-}
-
-.article-content h3 {
-    margin-top: 45px;
-    margin-bottom: 20px;
-}
-
-.article-content ul {
-    margin: 20px 0 30px;
-    padding-left: 25px;
-}
-
-.article-content li {
-    margin-bottom: 12px;
-}
-
-.article-content li {
-    margin-bottom: 10px;
-}
-
-    .article-content p {
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-
-.article-content h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 28px;
-    color: var(--text);
-    margin-top: 45px;
-    margin-bottom: 20px;
-}
-
-
-.article-content blockquote {
-    border-left: 3px solid var(--accent);
-    padding-left: 20px;
-    margin: 30px 0;
-    color: var(--text);
-    font-style: italic;
-    font-size: 18px;
-}
-
-    .article-content p {
-    margin-bottom: 25px;
-}
-
-.article-content h3 {
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-
-    .article-content p {
-    margin-bottom: 25px;
-    line-height: 1.8;
-}
-
-.article-content h3 {
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-
-    .article-content blockquote {
-    margin: 30px 0;
 }
