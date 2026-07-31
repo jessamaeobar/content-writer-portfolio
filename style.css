@@ -209,13 +209,15 @@ nav {
     color: var(--muted);
 }
 
-.project-card .project-link {
+.project-card .project-link,
+.portfolio-card .portfolio-link {
     color: var(--accent);
     text-decoration: none;
     font-weight: 600;
 }
 
-.project-card .project-link:hover {
+.project-card .project-link:hover,
+.portfolio-card .portfolio-link:hover {
     text-decoration: underline;
 }
 
