@@ -316,6 +316,15 @@ footer {
     line-height: 1.8;
 }
 
+.sample {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 35px;
+    margin: 30px 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
 /* Mobile */
 
 @media(max-width: 768px) {
