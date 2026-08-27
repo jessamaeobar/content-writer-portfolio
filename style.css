@@ -405,40 +405,6 @@ nav {
 }
 
 
-/* Clickable certificate image */
-
-.certificate-image-link {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.certificate-image {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: contain;
-    background: #F7F4F0;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    transition:
-        transform 0.25s ease,
-        opacity 0.25s ease;
-}
-
-.certificate-image-link:hover .certificate-image,
-.certificate-image-link:focus-visible .certificate-image {
-    transform: scale(1.015);
-    opacity: 0.94;
-}
-
-
 /* Certificate text */
 
 .certificate-card h3 {
