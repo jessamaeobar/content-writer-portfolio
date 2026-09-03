@@ -1,8 +1,8 @@
-/* Loads the same-page assistant UI on the portfolio without requiring changes to existing page markup. */
+/* Loads the free same-page assistant UI and its local knowledge engine. */
 (function(){
-  function load(url, tag){
+  function load(url){
     return new Promise(function(resolve,reject){
-      var el=document.createElement(tag);
+      var el=document.createElement('script');
       el.src=url;
       el.onload=resolve;
       el.onerror=reject;
@@ -14,5 +14,7 @@
   css.rel='stylesheet';
   css.href=new URL('assistant-widget.css',base).href;
   document.head.appendChild(css);
-  load(new URL('assistant-widget.js',base).href,'script').catch(function(){});
+  load(new URL('assistant-local.js',base).href)
+    .then(function(){ return load(new URL('assistant-widget.js',base).href); })
+    .catch(function(){});
 })();
