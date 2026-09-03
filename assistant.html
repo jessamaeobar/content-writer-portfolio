@@ -19,6 +19,7 @@
 <footer>Jessa Mae Obar · Content Writer | Content Development | Copy Editing | Proofreading</footer>
 </div>
 <script src="assistant-local.js"></script>
+<script src="assistant-role-routing.js"></script>
 <script>
 const messages=document.getElementById('messages'),form=document.getElementById('composer'),input=document.getElementById('input'),send=document.getElementById('send');
 function add(text,who='bot'){const box=document.createElement('div');box.className=`msg ${who}`;const b=document.createElement('div');b.className='bubble';b.textContent=text;box.appendChild(b);messages.appendChild(box);messages.scrollTop=messages.scrollHeight}
