@@ -1,9 +1,11 @@
 /* Jessa Mae Obar — Portfolio Assistant
- * Front-end widget shell. Keep API calls server-side; never expose provider API keys here.
+ * Front-end widget. The OpenAI API key stays server-side in Cloudflare.
  */
 (function () {
   if (window.__jessaAssistantLoaded) return;
   window.__jessaAssistantLoaded = true;
+
+  const ASSISTANT_ENDPOINT = 'https://jessa-portfolio-assistant.loricamae.workers.dev/';
 
   const launcher = document.createElement('button');
   launcher.className = 'jessa-assistant-launcher';
@@ -30,7 +32,7 @@
     </div>
     <form class="jessa-assistant-form">
       <label class="sr-only" for="jessa-assistant-input">Ask a question</label>
-      <input id="jessa-assistant-input" type="text" autocomplete="off" placeholder="Ask about Jessa’s experience…" />
+      <input id="jessa-assistant-input" type="text" autocomplete="off" placeholder="Ask about Jessa’s experience…" maxlength="1500" />
       <button type="submit" aria-label="Send question"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
     </form>
     <div class="jessa-assistant-note">Evidence-based answers • No invented claims</div>
@@ -73,19 +75,20 @@
     const typing = addMessage('Assistant', 'Thinking…', 'assistant typing');
 
     try {
-      const response = await fetch('/api/assistant', {
+      const response = await fetch(ASSISTANT_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question })
       });
 
-      if (!response.ok) throw new Error('Assistant endpoint unavailable');
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'Assistant endpoint unavailable');
+
       typing.remove();
       addMessage('Assistant', data.answer || 'I could not generate an answer right now.', 'assistant');
     } catch (error) {
       typing.remove();
-      addMessage('Assistant', 'The live AI connection is not configured yet. The assistant interface is ready, but a secure server-side AI endpoint still needs to be connected.', 'assistant');
+      addMessage('Assistant', 'I’m unable to connect to the assistant right now. Please try again in a moment.', 'assistant');
     } finally {
       input.disabled = false;
       input.focus();
