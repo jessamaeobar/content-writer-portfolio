@@ -1069,15 +1069,14 @@ blockquote {
     border: 1px solid var(--border);
     border-radius: 9px;
     background: var(--background);
-    color: var(--accent);
-    font-size: 16px;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
-.tool-letter {
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    font-size: 15px;
+.tool-icon img {
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 @media (max-width: 900px) {
