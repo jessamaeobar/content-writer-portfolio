@@ -1,11 +1,7 @@
-/* Jessa Mae Obar — Portfolio Assistant
- * Front-end widget. The OpenAI API key stays server-side in Cloudflare.
- */
+/* Jessa Mae Obar — free client-side portfolio assistant UI. */
 (function () {
   if (window.__jessaAssistantLoaded) return;
   window.__jessaAssistantLoaded = true;
-
-  const ASSISTANT_ENDPOINT = 'https://jessa-portfolio-assistant.loricamae.workers.dev/';
 
   const launcher = document.createElement('button');
   launcher.className = 'jessa-assistant-launcher';
@@ -18,16 +14,13 @@
   panel.setAttribute('aria-label', 'Jessa Mae Obar professional assistant');
   panel.innerHTML = `
     <div class="jessa-assistant-header">
-      <div>
-        <strong>Jessa Mae Obar</strong>
-        <span>Professional Portfolio Assistant</span>
-      </div>
+      <div><strong>Jessa Mae Obar</strong><span>Professional Portfolio Assistant</span></div>
       <button type="button" class="jessa-assistant-close" aria-label="Close assistant">×</button>
     </div>
     <div class="jessa-assistant-body" aria-live="polite">
       <div class="jessa-assistant-message assistant">
         <strong>Assistant</strong>
-        <p>Hi! Ask about Jessa’s experience, editing and proofreading background, content development, portfolio samples, education, certifications, or fit for a role. I’ll distinguish documented professional experience from portfolio evidence and training.</p>
+        <p>Hi! Ask about Jessa’s experience, editing and proofreading background, content development, portfolio samples, education, certifications, or fit for a role. I distinguish documented professional experience from portfolio evidence and training.</p>
       </div>
     </div>
     <form class="jessa-assistant-form">
@@ -35,7 +28,7 @@
       <input id="jessa-assistant-input" type="text" autocomplete="off" placeholder="Ask about Jessa’s experience…" maxlength="1500" />
       <button type="submit" aria-label="Send question"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
     </form>
-    <div class="jessa-assistant-note">Evidence-based answers • No invented claims</div>
+    <div class="jessa-assistant-note">Free client-side assistant • Evidence-based answers • No API key</div>
   `;
 
   document.body.appendChild(launcher);
@@ -46,53 +39,27 @@
   const input = panel.querySelector('input');
   const close = panel.querySelector('.jessa-assistant-close');
 
-  function open() {
-    panel.classList.add('is-open');
-    launcher.classList.add('is-hidden');
-    setTimeout(() => input.focus(), 50);
-  }
-  function shut() {
-    panel.classList.remove('is-open');
-    launcher.classList.remove('is-hidden');
-  }
-
+  function open() { panel.classList.add('is-open'); launcher.classList.add('is-hidden'); setTimeout(() => input.focus(), 50); }
+  function shut() { panel.classList.remove('is-open'); launcher.classList.remove('is-hidden'); }
   launcher.addEventListener('click', open);
   close.addEventListener('click', shut);
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && panel.classList.contains('is-open')) shut(); });
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && panel.classList.contains('is-open')) shut();
-  });
-
-  form.addEventListener('submit', async (event) => {
+  form.addEventListener('submit', event => {
     event.preventDefault();
     const question = input.value.trim();
     if (!question) return;
-
     addMessage('You', question, 'user');
     input.value = '';
     input.disabled = true;
-
     const typing = addMessage('Assistant', 'Thinking…', 'assistant typing');
-
-    try {
-      const response = await fetch(ASSISTANT_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question })
-      });
-
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.error || 'Assistant endpoint unavailable');
-
+    window.setTimeout(() => {
       typing.remove();
-      addMessage('Assistant', data.answer || 'I could not generate an answer right now.', 'assistant');
-    } catch (error) {
-      typing.remove();
-      addMessage('Assistant', 'I’m unable to connect to the assistant right now. Please try again in a moment.', 'assistant');
-    } finally {
+      const answer = window.JessaLocalAssistant ? window.JessaLocalAssistant.answer(question) : 'The free assistant is still loading. Please try again.';
+      addMessage('Assistant', answer, 'assistant');
       input.disabled = false;
       input.focus();
-    }
+    }, 120);
   });
 
   function addMessage(label, text, type) {
