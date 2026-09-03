@@ -63,7 +63,7 @@
 
   function jobFitAnswer(question) {
     const q = lower(question);
-    const isSpecificJob = has(q, ['job', 'position', 'role', 'requirement', 'requirements', 'candidate', 'qualified', 'suitable', 'fit for', 'good fit', 'meet the requirements', 'job description']);
+    const isSpecificJob = has(q, ['job', 'position', 'requirement', 'requirements', 'candidate', 'qualified', 'suitable', 'fit for', 'good fit', 'meet the requirements', 'job description']);
     if (!isSpecificJob) return null;
 
     const hasYears2 = /(?:2|two)\s*\+?\s*years?|(?:at least|minimum of)\s*(?:2|two)\s*years?/i.test(q);
