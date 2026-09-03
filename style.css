@@ -1096,3 +1096,30 @@ blockquote {
     }
 
 }
+
+/* Tool logos */
+.tool-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tool-icon img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Fallback icons */
+.logo-fallback-icon {
+    display: none;
+    font-size: 30px;
+}
+
+.tool-icon.logo-fallback .logo-fallback-icon {
+    display: block;
+}
