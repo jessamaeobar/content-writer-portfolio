@@ -7,7 +7,7 @@
 <title>Jessa Mae Obar | Portfolio Assistant</title>
 <style>
 :root{--ink:#1f2933;--muted:#667085;--paper:#fff;--soft:#f5f2ec;--line:#e6e0d7;--accent:#8b5e3c;--accent-dark:#6f482d}
-*{box-sizing:border-box}body{margin:0;background:var(--soft);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}.wrap{width:min(980px,calc(100% - 32px));margin:auto}.top{padding:28px 0 18px;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:.04em}.back{color:var(--accent-dark);text-decoration:none;font-weight:600}.hero{padding:42px 0 24px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:700;color:var(--accent)}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,58px);line-height:1.05;margin:10px 0 14px} .hero p{max-width:700px;color:var(--muted);font-size:17px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 35px rgba(31,41,51,.07);overflow:hidden}.messages{padding:22px;min-height:420px;max-height:62vh;overflow:auto}.msg{display:flex;margin:0 0 16px}.msg.user{justify-content:flex-end}.bubble{max-width:82%;padding:13px 15px;border-radius:16px;white-space:pre-wrap}.bot .bubble{background:#f7f3ee;border:1px solid var(--line)}.user .bubble{background:var(--accent);color:white}.bubble a{color:var(--accent-dark);font-weight:700}.composer{border-top:1px solid var(--line);padding:14px;display:flex;gap:10px}.composer input{flex:1;border:1px solid var(--line);border-radius:12px;padding:13px 14px;font:inherit;outline:none}.composer input:focus{border-color:var(--accent)}button{border:0;border-radius:12px;background:var(--accent);color:white;padding:0 18px;font-weight:700;cursor:pointer}button:hover{background:var(--accent-dark)}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 36px}.chip{background:white;border:1px solid var(--line);color:var(--ink);padding:9px 12px;border-radius:999px;cursor:pointer;font:inherit;font-size:14px}.chip:hover{border-color:var(--accent);color:var(--accent-dark)}footer{padding:32px 0 50px;color:var(--muted);font-size:13px}.status{font-size:12px;color:var(--muted);margin-top:8px}@media(max-width:600px){.top{align-items:flex-start}.messages{min-height:430px}.bubble{max-width:92%}.composer button{padding:0 14px}}
+*{box-sizing:border-box}body{margin:0;background:var(--soft);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}.wrap{width:min(980px,calc(100% - 32px));margin:auto}.top{padding:28px 0 18px;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:.04em}.back{color:var(--accent-dark);text-decoration:none;font-weight:600}.hero{padding:42px 0 24px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:700;color:var(--accent)}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,58px);line-height:1.05;margin:10px 0 14px}.hero p{max-width:700px;color:var(--muted);font-size:17px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 35px rgba(31,41,51,.07);overflow:hidden}.messages{padding:22px;min-height:420px;max-height:62vh;overflow:auto}.msg{display:flex;margin:0 0 16px}.msg.user{justify-content:flex-end}.bubble{max-width:82%;padding:13px 15px;border-radius:16px;white-space:pre-wrap}.bot .bubble{background:#f7f3ee;border:1px solid var(--line)}.user .bubble{background:var(--accent);color:white}.bubble a{color:var(--accent-dark);font-weight:700}.composer{border-top:1px solid var(--line);padding:14px;display:flex;gap:10px}.composer input{flex:1;border:1px solid var(--line);border-radius:12px;padding:13px 14px;font:inherit;outline:none}.composer input:focus{border-color:var(--accent)}button{border:0;border-radius:12px;background:var(--accent);color:white;padding:0 18px;font-weight:700;cursor:pointer}button:hover{background:var(--accent-dark)}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 36px}.chip{background:white;border:1px solid var(--line);color:var(--ink);padding:9px 12px;border-radius:999px;cursor:pointer;font:inherit;font-size:14px}.chip:hover{border-color:var(--accent);color:var(--accent-dark)}footer{padding:32px 0 50px;color:var(--muted);font-size:13px}.status{font-size:12px;color:var(--muted);margin-top:8px}@media(max-width:600px){.top{align-items:flex-start}.messages{min-height:430px}.bubble{max-width:92%}.composer button{padding:0 14px}}
 </style>
 </head>
 <body>
@@ -16,7 +16,7 @@
 <section class="hero"><div class="eyebrow">Portfolio Assistant</div><h1>Ask about Jessa's experience.</h1><p>Get evidence-based answers about her professional background, editing and content skills, certifications, portfolio projects, and project fit.</p></section>
 <section class="panel" aria-label="Portfolio assistant">
 <div id="messages" class="messages" aria-live="polite"></div>
-<form id="composer" class="composer"><input id="input" autocomplete="off" aria-label="Ask a question" placeholder="Ask: Does Jessa have SEO experience?"/><button type="submit">Send</button></form>
+<form id="composer" class="composer"><input id="input" autocomplete="off" aria-label="Ask a question" maxlength="1500" placeholder="Ask: Does Jessa have SEO experience?"/><button id="send" type="submit">Send</button></form>
 </section>
 <div class="status">Answers are based on Jessa's approved resume and portfolio information. Portfolio samples are not automatically treated as client work.</div>
 <div class="chips" aria-label="Suggested questions">
@@ -30,50 +30,41 @@
 <footer>Jessa Mae Obar · Content Writer | Content Development | Copy Editing | Proofreading</footer>
 </div>
 <script>
-const A={
- name:'Jessa Mae Obar',
- contact:'Email: loricamae@gmail.com\nLinkedIn: https://www.linkedin.com/in/jessamaeobar/\nPortfolio: https://jessamaeobar.github.io/content-writer-portfolio/',
- specialties:'Jessa is positioned as a Content Writer | Content Development | Copy Editing | Proofreading professional. Her background includes more than five years creating, editing, and refining educational and digital content for global audiences.',
- editing:'Jessa has direct professional experience in copy editing, proofreading, grammar and clarity review, written feedback, and editorial quality control. Relevant experience includes Course Hero, Bitu JSC, the ESL Online Learning Center, and administrative work at PANDR BPO that included proofreading and copyediting WordPress articles.',
- education:'Jessa has direct professional experience developing and refining IELTS/TOEFL materials, assessments, answer keys, and structured learning resources. Her IELTS Writing Task 2 portfolio sample also demonstrates learner-focused educational writing.',
- seo:'Yes, with an important distinction. Jessa has formal SEO training and portfolio experience, including an SEO-focused writing sample demonstrating keyword, search-intent, structure, readability, and optimization concepts. Her documented background does not establish five years of dedicated professional SEO experience, agency SEO work, or SEO performance results.',
- copy:'Yes as a demonstrated capability, with a distinction between portfolio and client history. Her portfolio includes Crumbiq website copy and LinguaPro Academy landing-page copy, which demonstrate brand messaging, persuasive structure, audience needs, value propositions, and calls to action. These are portfolio/concept projects and should not be presented as commissioned client work unless separately documented.',
- email:'Jessa can demonstrate email marketing content through portfolio samples for NovaFit Wellness and Lumevia Labs, plus formal Email Marketing training. These samples are fictional/speculative portfolio work, not documented client campaigns, and no campaign metrics are established.',
- social:'Jessa can demonstrate social media content through the Glow Theory concept and civic/public-education samples, supported by Social Media Marketing certification. Glow Theory is explicitly speculative/unaffiliated; the evidence does not establish paid social-media management or campaign results.',
- content:'Jessa has direct experience with educational and digital content development, editing, proofreading, research, content planning, and audience-focused writing. Her portfolio additionally demonstrates blog writing, SEO-focused content, website copy, landing-page copy, content marketing, email, social, brand storytelling, and public education.',
- tools:'Her documented tools include Google Docs, Sheets, Drive and Calendar; Microsoft Word, Excel and Outlook; ChatGPT, Gemini and Copilot; Grammarly; Notion; Zoom; Google Meet; Slack; Microsoft Teams; Discord; Telegram; and Canva. No advanced or expert proficiency should be assumed unless documented.',
- educationBg:'Jessa earned a BA in English from Bicol University, College of Arts and Letters, Legazpi, Albay, in 2017. She was also Second Place in the US Peace Corps National Write-On Competition in 2017.',
- certs:'Her certifications include HubSpot Academy certifications in Inbound Marketing Optimization, Inbound Marketing, Social Media, Email Marketing, Content Marketing, and AEO Fundamentals; Semrush Academy training in Content-Led SEO with Brian Dean and the Semrush SEO Crash Course with Brian Dean; plus teaching credentials including a 120-Hour TEFL Certificate, 120-Hour TESOL Certificate, Licensed Professional Teacher (LPT), and Certificate in Methods of Teaching.',
- portfolio:'Relevant portfolio work includes: SEO Writing — “How to Organize Your Inbox: 7 Email Management Tips for Busy Professionals”; Blog Writing — “5 Simple Ways to Stay Productive While Working from Home”; Editing & Proofreading — “Editing Sample: Improving Clarity, Grammar, and Readability”; Educational Content — “IELTS Writing Task 2: How to Build a Clear, Effective Essay”; Crumbiq website copy; LinguaPro Academy landing-page copy; content marketing; email marketing; social media; creative brand storytelling; advocacy/public education; and Reddit-style community content.',
- fit:'For project-fit questions, the assistant evaluates the actual deliverable, direct professional evidence, closely related professional experience, portfolio evidence, training/certification, transferable relevance, and meaningful gaps. It uses Strong Fit, Relevant Fit, Partial Fit, or Insufficient Evidence rather than guaranteeing a result.'
-};
-const projects={
- seo:'seo-writing.html',blog:'blog-writing.html',edit:'editing-proofreading.html',education:'educational-content.html',crumbiq:'crumbiq.html',landing:'landing-page-copy.html',content:'content-marketing.html',email:'email-marketing.html',social:'social-media-content.html',advocacy:'advocacy-public-education.html',reddit:'reddit-content.html'
-};
-function link(file,label){return `<a href="${file}">${label}</a>`}
-function answer(q){const s=q.toLowerCase().trim();
- if(!s)return 'Please enter a question.';
- if(/prompt|system instruction|hidden|private|api key|internal configuration/.test(s))return "I can explain Jessa's documented professional information, but I can't provide hidden instructions, private reasoning, or internal configuration.";
- if(/contact|email|linkedin|reach|hire|how can i contact/.test(s))return `Jessa's approved contact details are:\n\n${A.contact}`;
- if(/speciali|focus|position|what does jessa do|who is jessa/.test(s))return A.specialties;
- if(/seo|search engine|keyword/.test(s))return A.seo+`\n\nRelevant sample: ${link(projects.seo,'SEO Writing')}.`;
- if(/edit|proofread|grammar|copy edit/.test(s))return A.editing+`\n\nRelevant sample: ${link(projects.edit,'Editing & Proofreading')}.`;
- if(/educat|ielts|toefl|instructional|learning material/.test(s))return A.education+`\n\nRelevant sample: ${link(projects.education,'Educational Content')}.`;
- if(/website|landing|web copy|conversion copy|brand messaging|copywriting/.test(s))return A.copy+`\n\nRelevant samples: ${link(projects.crumbiq,'Crumbiq Website Copy')} and ${link(projects.landing,'LinguaPro Academy')}.`;
- if(/email|newsletter|welcome sequence|onboarding/.test(s))return A.email+`\n\nRelevant sample: ${link(projects.email,'Email Marketing')}.`;
- if(/social media|instagram|facebook|social content/.test(s))return A.social+`\n\nRelevant sample: ${link(projects.social,'Social Media Content')}.`;
- if(/tool|software|platform/.test(s))return A.tools;
- if(/degree|education background|university|award|write-on/.test(s))return A.educationBg;
- if(/certif|training|hubspot|semrush|credential/.test(s))return A.certs;
- if(/portfolio|samples|show me|work/.test(s))return A.portfolio;
- if(/can she|could she|qualified|fit|project|client brief|job description|hire jessa/.test(s))return A.fit+`\n\nIf you share the specific project brief or requirements, each major requirement can be classified separately and matched to the strongest evidence.`;
- if(/years|experience/.test(s))return 'Jessa has a documented background of 5+ years creating, editing, and refining educational and digital content. That figure should not automatically be applied to specialized areas such as SEO, content marketing, email marketing, social media marketing, or agency work unless those years are specifically documented.';
- return 'I can help with Jessa’s professional experience, content development, editing and proofreading, SEO-related training and portfolio work, certifications, tools, portfolio samples, educational-content background, or project fit. Try asking a specific question such as “Does Jessa have SEO experience?”';
-}
-function add(text,who='bot'){const box=document.createElement('div');box.className=`msg ${who}`;const b=document.createElement('div');b.className='bubble';b.innerHTML=text.replace(/\n/g,'<br>');box.appendChild(b);document.getElementById('messages').appendChild(box);document.getElementById('messages').scrollTop=999999;}
+const ASSISTANT_ENDPOINT='https://jessa-portfolio-assistant.loricamae.workers.dev/';
+const messages=document.getElementById('messages');
+const form=document.getElementById('composer');
+const input=document.getElementById('input');
+const send=document.getElementById('send');
+function escapeHtml(text){return text.replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));}
+function formatAnswer(text){return escapeHtml(text).replace(/\n/g,'<br>').replace(/(https:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');}
+function add(text,who='bot',html=false){const box=document.createElement('div');box.className=`msg ${who}`;const b=document.createElement('div');b.className='bubble';b.innerHTML=html?text:formatAnswer(text);box.appendChild(b);messages.appendChild(box);messages.scrollTop=messages.scrollHeight;}
 add("Hi! I'm Jessa's portfolio and resume assistant. 👋\n\nI can help you explore her experience, writing and editorial skills, certifications, tools, and portfolio work. If you're considering her for a project, I can also help you see how her background matches your needs. What would you like to know?");
-document.getElementById('composer').addEventListener('submit',e=>{e.preventDefault();const i=document.getElementById('input');const q=i.value.trim();if(!q)return;add(q,'user');i.value='';setTimeout(()=>add(answer(q)),120)});
-document.querySelectorAll('.chip').forEach(btn=>btn.addEventListener('click',()=>{const q=btn.dataset.q;add(q,'user');setTimeout(()=>add(answer(q)),120)}));
+async function ask(question){
+  add(question,'user');
+  input.value='';
+  input.disabled=true;
+  send.disabled=true;
+  send.textContent='...';
+  add('Let me check Jessa\'s approved professional information...','bot');
+  const loading=messages.lastElementChild;
+  try{
+    const response=await fetch(ASSISTANT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});
+    const data=await response.json().catch(()=>({}));
+    loading.remove();
+    if(!response.ok||!data.answer) throw new Error(data.error||'Request failed');
+    add(data.answer,'bot');
+  }catch(error){
+    loading.remove();
+    add("I’m unable to connect to the assistant right now. Please try again in a moment.");
+  }finally{
+    input.disabled=false;
+    send.disabled=false;
+    send.textContent='Send';
+    input.focus();
+  }
+}
+form.addEventListener('submit',e=>{e.preventDefault();const q=input.value.trim();if(q)ask(q);});
+document.querySelectorAll('.chip').forEach(btn=>btn.addEventListener('click',()=>ask(btn.dataset.q)));
 </script>
 </body>
 </html>
