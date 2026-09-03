@@ -1,4 +1,4 @@
-/* Jessa Mae Obar — free client-side portfolio assistant UI. */
+/* Jessa Mae Obar — visitor-facing portfolio assistant UI. */
 (function () {
   if (window.__jessaAssistantLoaded) return;
   window.__jessaAssistantLoaded = true;
@@ -20,7 +20,7 @@
     <div class="jessa-assistant-body" aria-live="polite">
       <div class="jessa-assistant-message assistant">
         <strong>Assistant</strong>
-        <p>Hi! Ask about Jessa’s experience, editing and proofreading background, content development, portfolio samples, education, certifications, or fit for a role. I distinguish documented professional experience from portfolio evidence and training.</p>
+        <p>Hi! Ask about Jessa’s experience, writing, editing, proofreading, content development, SEO, portfolio, certifications, or fit for a role. I distinguish documented professional experience from portfolio evidence and training.</p>
       </div>
     </div>
     <form class="jessa-assistant-form">
@@ -28,7 +28,7 @@
       <input id="jessa-assistant-input" type="text" autocomplete="off" placeholder="Ask about Jessa’s experience…" maxlength="1500" />
       <button type="submit" aria-label="Send question"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
     </form>
-    <div class="jessa-assistant-note">Free client-side assistant • Evidence-based answers • No API key</div>
+    <div class="jessa-assistant-note">Based on Jessa Mae Obar’s professional profile and portfolio.</div>
   `;
 
   document.body.appendChild(launcher);
@@ -55,7 +55,7 @@
     const typing = addMessage('Assistant', 'Thinking…', 'assistant typing');
     window.setTimeout(() => {
       typing.remove();
-      const answer = window.JessaLocalAssistant ? window.JessaLocalAssistant.answer(question) : 'The free assistant is still loading. Please try again.';
+      const answer = window.JessaLocalAssistant ? window.JessaLocalAssistant.answer(question) : 'The assistant is still loading. Please try again.';
       addMessage('Assistant', answer, 'assistant');
       input.disabled = false;
       input.focus();
