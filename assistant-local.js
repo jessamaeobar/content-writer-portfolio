@@ -61,70 +61,103 @@
   const lower = s => s.toLowerCase();
   const has = (q, words) => words.some(w => q.includes(w));
 
+  function jobFitAnswer(question) {
+    const q = lower(question);
+    const isSpecificJob = has(q, ['job', 'position', 'role', 'requirement', 'requirements', 'candidate', 'qualified', 'suitable', 'fit for', 'good fit', 'meet the requirements', 'job description']);
+    if (!isSpecificJob) return null;
+
+    const hasYears2 = /(?:2|two)\s*\+?\s*years?|(?:at least|minimum of)\s*(?:2|two)\s*years?/i.test(q);
+    const mentionsContent = has(q, ['content writer', 'content writing', 'content creation', 'blog writing', 'article writing', 'content development']);
+    const mentionsSEO = has(q, ['seo', 'search engine optimization', 'keyword research', 'keywords']);
+    const mentionsEditing = has(q, ['editing', 'editor', 'copy edit', 'copyediting', 'proofreading', 'proofreader']);
+    const mentionsEmail = has(q, ['email marketing', 'email campaign', 'newsletter']);
+    const mentionsSocial = has(q, ['social media', 'social media marketing']);
+    const mentionsRemote = has(q, ['remote', 'remote team', 'work from home', 'distributed team', 'international team']);
+    const mentionsMarketing = has(q, ['content marketing', 'inbound marketing', 'marketing content', 'marketing writing']);
+
+    const items = [];
+    if (hasYears2 || mentionsContent) {
+      items.push(`1. Content writing / ${hasYears2 ? '2+ years of experience' : 'content development'}\nFit: Partial to good, depending on the exact requirement.\nEvidence: Jessa has documented professional content-development work at Bitu JSC, including developing, editing, and refining IELTS lesson materials, assessments, answer keys, and learning resources. PANDR BPO also involved copyediting/proofreading WordPress articles.\nGap: The record does not establish 2+ years under a professional Content Writer job title. Her broader writing capability is also supported by portfolio evidence.`);
+    }
+    if (mentionsSEO) {
+      items.push(`2. SEO / keyword research\nFit: Supported, with a clear qualification.\nEvidence: Jessa has an SEO-focused portfolio sample, approved SEO-writing and keyword-research skills, and completed Content-Led SEO with Brian Dean and the Semrush SEO Crash Course with Brian Dean in August 2026.\nGap: The documented work history does not establish five years of professional SEO employment.`);
+    }
+    if (mentionsEditing) {
+      items.push(`3. Editing and proofreading\nFit: Strong.\nEvidence: Jessa has documented professional editing/proofreading experience at Bitu JSC, Course Hero, PANDR BPO, and ESL Online Learning Center, covering instructional materials, assessments, essays, research papers, WordPress articles, answer keys, student work, and evaluation reports.`);
+    }
+    if (mentionsEmail) {
+      items.push(`4. Email marketing\nFit: Supported, primarily through training and portfolio evidence.\nEvidence: Jessa holds HubSpot Email Marketing Certification and has NovaFit Wellness and Lumevia Labs welcome/onboarding email samples.\nGap: Those samples are fictional/speculative, so they should not be described as verified client campaigns.`);
+    }
+    if (mentionsSocial) {
+      items.push(`5. Social media\nFit: Supported through portfolio evidence and training.\nEvidence: Jessa holds HubSpot Social Media Certification and has the Glow Theory social-media content sample.\nGap: Glow Theory is speculative/unaffiliated, so a professional client-management claim is not documented.`);
+    }
+    if (mentionsMarketing) {
+      items.push(`6. Content/inbound marketing\nFit: Supported, with limitations.\nEvidence: Jessa has HubSpot Content Marketing, Inbound Marketing, and Inbound Marketing Optimization certifications plus a content-marketing portfolio sample.\nGap: The record does not establish five years of professional content-marketing employment.`);
+    }
+    if (mentionsRemote) {
+      items.push(`7. Remote collaboration\nFit: Yes.\nEvidence: Jessa has documented remote experience with Bitu JSC and Course Hero and has used remote communication/collaboration tools. Her approved profile also documents a remote-ready setup and flexibility across time zones.`);
+    }
+
+    if (!items.length) {
+      items.push(`1. Overall role requirements\nFit: Requires the job description for a precise assessment.\nEvidence: Strong documented areas include editing/proofreading, educational content development, written communication, research, and content development.\nGap: Specialized requirements must be checked individually rather than assumed from the job title alone.`);
+    }
+
+    return `Jessa appears to be a potentially good fit based on the information provided, but the exact fit depends on the job’s requirements. The assessment below separates professional evidence from portfolio evidence and training.\n\n${items.join('\n\n')}\n\nOverall Assessment\nJessa is particularly well supported for roles involving writing, editing, proofreading, educational content, content development, and clear written communication. SEO, content marketing, email marketing, and social media are supported by a combination of portfolio evidence, skills, and recent training, but these should not be presented as equivalent to years of specialized professional employment.\n\nPortfolio Evidence\n${PROFILE.portfolio}\n\nFor a complete assessment, paste the full job description and the assistant will evaluate each stated requirement separately.`;
+  }
+
   function answer(question) {
     const q = lower(String(question || '').trim());
     if (!q) return 'Please enter a question about Jessa Mae Obar’s experience, skills, certifications, portfolio, or project fit.';
 
+    // Job-fit routing MUST run before broad contact and generic skill handlers.
+    const fit = jobFitAnswer(q);
+    if (fit) return fit;
+
     if (has(q, ['contact', 'email', 'reach', 'linkedin', 'get in touch', 'hire her'])) {
       return `Contact Jessa Mae Obar through the following:\n\nEmail: ${PROFILE.email}\nLinkedIn: ${PROFILE.linkedin}\nPortfolio: ${PROFILE.portfolio}`;
     }
-
     if (has(q, ['who is jessa', 'about jessa', 'tell me about jessa', 'specialize', 'specialises', 'specializes', 'what does jessa do'])) {
       return `${PROFILE.name} is positioned as a ${PROFILE.positioning}.\n\nHer documented professional background combines ESL education, educational content development, copy editing, proofreading, academic-writing support, and administrative/customer-success experience.\n\nHer portfolio also demonstrates writing and marketing-content formats such as blogs, website copy, landing pages, SEO content, email, social media, and content marketing.`;
     }
-
     if (has(q, ['strong candidate', 'strongest skill', 'biggest strength', 'strengths', 'best skills', 'what makes jessa'])) {
       return `Jessa’s strongest documented areas are copyediting and proofreading, educational content development, clear written communication, accuracy-focused quality control, and audience-aware content refinement.\n\nHer professional experience supports these strengths through Bitu JSC, Course Hero, PANDR BPO, and ESL Online Learning Center. Her portfolio and recent training also add evidence of relevance to SEO, content marketing, email marketing, social media, and AEO.`;
     }
-
     if (has(q, ['best suited', 'best fit', 'type of role', 'roles is jessa', 'what roles'])) {
       return `Based on the documented evidence, Jessa is particularly relevant to roles such as:\n\n• ${FIT_ROLES.join('\n• ')}\n\nSuitability depends on the exact job requirements. Portfolio evidence and training support additional marketing/SEO relevance, but they should not be presented as equivalent to years of professional employment in those specialties.`;
     }
-
     if (has(q, ['editing', 'proofreading', 'copy edit', 'proofread', 'editorial'])) {
       return `Jessa has documented professional editing and proofreading experience across education, academic writing, and digital content.\n\nAt Bitu JSC, she developed, edited, and refined IELTS lesson materials, assessments, answer keys, and learning resources, ensuring accuracy, clarity, consistency, and alignment with exam standards while translating complex language concepts into accessible content.\n\nAt Course Hero, she copyedited and proofread essays and research papers for grammar, clarity, structure, coherence, and academic conventions.\n\nAt PANDR BPO, she copyedited and proofread WordPress articles for grammar, clarity, readability, accuracy, and brand voice.\n\nAt ESL Online Learning Center, she copyedited and proofread IELTS/TOEFL essays, answer keys, instructional materials, student work, and evaluation reports.\n\nOverall, the documented experience supports copyediting, proofreading, editorial quality control, and clarity-focused content refinement.`;
     }
-
     if (has(q, ['content writing', 'content writer', 'blog', 'article', 'write content', 'writing experience'])) {
       return `Jessa’s documented background supports content development through educational and digital content work.\n\nAt Bitu, she developed, edited, and refined IELTS lesson materials, assessments, answer keys, and learning resources.\n\nAt PANDR BPO, she copyedited and proofread WordPress articles.\n\nHer portfolio additionally demonstrates blog writing, SEO writing, website copy, content marketing, educational content, and other digital formats.\n\nThe strongest documented professional evidence is in educational content and editing; portfolio samples demonstrate broader content-writing capability.`;
     }
-
     if (has(q, ['website copy', 'landing page', 'web copy', 'sales page'])) {
       return `Jessa’s portfolio demonstrates website and landing-page copywriting through the Crumbiq concept website-copy sample and the LinguaPro Academy landing-page sample.\n\nThese are portfolio evidence, not verified client engagements.\n\nHer professional history also demonstrates strong editing, audience-focused communication, and content-development skills that transfer well to website copy.`;
     }
-
     if (has(q, ['seo', 'search engine', 'keyword'])) {
       return `Yes — Jessa has SEO-related experience, with an important distinction between portfolio evidence/training and documented professional employment.\n\n• Portfolio: She has an SEO-focused writing sample, “How to Organize Your Inbox: 7 Email Management Tips for Busy Professionals,” demonstrating SEO writing capability and naturally integrated keywords.\n\n• Training: She completed Content-Led SEO with Brian Dean and the Semrush SEO Crash Course with Brian Dean in August 2026.\n\n• Skills: Her approved skills include SEO writing, keyword research, and SEO content optimization.\n\n• Limitation: The documented work history does not establish five years of professional SEO experience.\n\nSo, the strongest accurate answer is: Jessa has SEO writing capability supported by portfolio evidence, relevant skills, and recent SEO training, but five years of professional SEO employment is not documented.`;
     }
-
     if (has(q, ['email marketing', 'email copy', 'newsletter', 'email campaign'])) {
       return `Her portfolio includes NovaFit Wellness and Lumevia Labs welcome/onboarding email samples, and she holds HubSpot Email Marketing Certification (August 2026).\n\nThese samples are fictional/speculative rather than verified client campaigns.\n\nHer professional experience also includes substantial written communication and educational content development.`;
     }
-
     if (has(q, ['social media', 'social media marketing', 'instagram', 'facebook content'])) {
       return `Jessa has portfolio evidence in social media content through the Glow Theory skincare-brand sample, plus HubSpot Social Media Certification (August 2026).\n\nThe Glow Theory sample is speculative/unaffiliated and should not be presented as client work.\n\nHer transferable strengths include audience-focused writing, content planning, communication, and marketing training.`;
     }
-
     if (has(q, ['content marketing', 'marketing content', 'marketing writing'])) {
       return `Jessa has portfolio and training evidence relevant to content marketing. Her portfolio includes a business-focused content marketing sample, and she holds HubSpot Content Marketing, Inbound Marketing, and Inbound Marketing Optimization certifications (August 2026).\n\nHer professional background adds transferable strengths in content development, audience-focused communication, research, editing, and educational content. The record should not be interpreted as five years of professional content-marketing employment unless separately documented.`;
     }
-
     if (has(q, ['ai-assisted', 'ai assisted', 'ai tools', 'artificial intelligence', 'chatgpt', 'gemini', 'copilot'])) {
       return `Jessa’s approved tools include ChatGPT, Gemini, and Copilot, along with Grammarly. She also completed AI for Marketing through HubSpot Academy in August 2026.\n\nThese support AI-assisted content workflows and marketing learning, but the available record does not establish a separate professional title or years of employment as an AI specialist.`;
     }
-
     if (has(q, ['international', 'international team', 'remote team', 'remote work', 'work remotely', 'work from home'])) {
       return `Jessa has documented remote professional experience, including remote ESL work with Bitu JSC and Course Hero.\n\nHer remote-ready setup includes a 100 Mbps primary connection, 50 Mbps backup, power station, power banks, coworking backup, an i7 laptop, noise-canceling headset, HD webcam, and flexibility across time zones.`;
     }
-
     if (has(q, ['client', 'clients', 'commissioned', 'freelance client', 'real client', 'client work'])) {
       return `The available evidence does not establish client relationships for the speculative portfolio brands/samples. They should not be presented as commissioned client work unless separately verified.\n\nIn particular, Crumbiq is fictional/concept; LinguaPro Academy is independently created/speculative; NovaFit Wellness and Lumevia Labs are fictional/speculative email samples; Glow Theory is speculative/unaffiliated; and After the Floodwaters Receded is fictionalized storytelling.`;
     }
-
     if (has(q, ['not documented', 'what is not documented', 'limitations', 'limitation', 'gap', 'missing experience'])) {
       return `Important limitations in the approved record include:\n\n• Five years of professional SEO employment is not documented.\n• Speculative portfolio brands are not established as clients.\n• Portfolio samples should not be treated as commissioned campaigns without separate verification.\n• Pricing or numeric rates are not documented.\n• Current availability should not be inferred from past employment.\n• Campaign performance, traffic, rankings, conversions, revenue, testimonials, and similar outcomes should not be invented.`;
     }
-
     if (has(q, ['education', 'degree', 'school', 'university', 'bachelor'])) return `${PROFILE.education}\n\n${PROFILE.award}`;
     if (has(q, ['certification', 'certified', 'certificate', 'credential'])) return `Documented certifications include:\n\n• ${PROFILE.certifications.join('\n• ')}`;
     if (has(q, ['training', 'professional development', 'course'])) return `Documented professional development includes:\n\n• ${PROFILE.development.join('\n• ')}`;
@@ -132,24 +165,14 @@
     if (has(q, ['skill', 'capability', 'capabilities', 'good at'])) return `Core skills include:\n\n${PROFILE.skills}`;
     if (has(q, ['experience', 'work history', 'employment', 'worked'])) return `Documented work history includes:\n\n• ${PROFILE.roles.join('\n\n• ')}`;
     if (has(q, ['language', 'english', 'filipino'])) return PROFILE.languages;
-
     if (has(q, ['portfolio', 'sample', 'project'])) return `Portfolio evidence includes:\n\n• ${Object.entries(PROJECTS).map(([k, v]) => `${k}: ${v}`).join('\n\n• ')}`;
     if (has(q, ['crumbiq'])) return PROJECTS.Crumbiq;
     if (has(q, ['linguapro'])) return PROJECTS['LinguaPro Academy'];
     if (has(q, ['novafit', 'lumevia'])) return PROJECTS['NovaFit Wellness & Lumevia Labs'];
     if (has(q, ['glow theory'])) return PROJECTS['Glow Theory'];
     if (has(q, ['after the floodwaters', 'floodwaters'])) return 'After the Floodwaters Receded is a fictionalized storytelling sample. It should not be presented as verified journalism or a reported client project.';
-
     if (has(q, ['professional seo', 'years of seo', 'five years seo'])) return `The documented record does not establish five years of professional SEO experience.\n\nJessa has SEO-focused portfolio evidence, relevant skills, and recent SEO training. These should be described separately from professional employment history.`;
-
-    if (has(q, ['years of experience', 'years experience', 'how many years'])) {
-      return `The assistant can report documented dates for specific roles, but it should not turn the entire career timeline into a single inflated “years of content writing” figure.\n\nProfessional experience should be evaluated by the specific skill or requirement. For example, Jessa has substantial documented editing/proofreading experience, while SEO is supported by portfolio evidence and recent training rather than five years of documented professional SEO employment.`;
-    }
-
-    if (has(q, ['fit', 'qualified', 'qualification', 'suitable', 'good candidate', 'job', 'role', 'requirement', 'requirements'])) {
-      return `For job-fit questions, the strongest approach is requirement-by-requirement assessment:\n\nNeed → Deliverable → Evidence → Fit → Gap → Portfolio → Next Step\n\nStrong documented areas include editing/proofreading, educational content development, written communication, research, and content development. Portfolio and training support additional relevance in SEO, content marketing, email marketing, social media, and AEO, but those should not be overstated as equivalent to years of professional employment.\n\nPaste the job description or requirements for a specific assessment.`;
-    }
-
+    if (has(q, ['years of experience', 'years experience', 'how many years'])) return `The assistant can report documented dates for specific roles, but it should not turn the entire career timeline into a single inflated “years of content writing” figure.\n\nProfessional experience should be evaluated by the specific skill or requirement. For example, Jessa has substantial documented editing/proofreading experience, while SEO is supported by portfolio evidence and recent training rather than five years of documented professional SEO employment.`;
     if (has(q, ['price', 'rate', 'cost', 'salary', 'fee', 'how much'])) return 'Pricing or numeric rates are not documented in the approved information, so a rate should not be invented.';
     if (has(q, ['available', 'availability', 'start date', 'when can she start'])) return 'Current availability or a start date is not documented in the approved information, so it should not be assumed from past employment dates.';
 
