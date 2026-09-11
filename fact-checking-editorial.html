@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Fact-checking and editorial editing portfolio exercise demonstrating source verification, editorial judgment, and concise content editing."
+  >
+
+  <title>Fact-Checking & Editorial Editing | Jessa Mae Obar</title>
+
+  <style>
+    :root {
+      --text: #1f2937;
+      --heading: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --surface: #f8fafc;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --success-bg: #f0fdf4;
+      --success-border: #bbf7d0;
+      --table-header: #f3f4f6;
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.7;
+    }
+
+    main {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+      padding: 64px 0 80px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      color: var(--heading);
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      margin-top: 52px;
+      margin-bottom: 20px;
+      font-size: 1.65rem;
+    }
+
+    h3 {
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .subtitle {
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .intro {
+      max-width: 800px;
+      color: #374151;
+      font-size: 1.05rem;
+    }
+
+    .note {
+      margin: 28px 0 44px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      background: var(--surface);
+      color: #374151;
+    }
+
+    .draft,
+    .revised {
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .draft {
+      border: 1px solid var(--border);
+      background: #fcfcfd;
+    }
+
+    .revised {
+      border: 1px solid var(--success-border);
+      background: var(--success-bg);
+    }
+
+    .draft h3,
+    .revised h3 {
+      margin-top: 0;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th,
+    td {
+      padding: 15px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: var(--table-header);
+      color: var(--heading);
+      font-weight: 700;
+    }
+
+    td strong {
+      color: var(--heading);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 9px;
+    }
+
+    .sources {
+      margin-top: 18px;
+    }
+
+    .sources p {
+      margin-bottom: 12px;
+    }
+
+    .sources a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .sources a:hover {
+      color: var(--accent-hover);
+    }
+
+    .footer-note {
+      margin-top: 52px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        width: 92%;
+        padding-top: 42px;
+      }
+
+      .draft,
+      .revised {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <span class="eyebrow">Portfolio Exercise</span>
+
+    <h1>Fact-Checking &amp; Editorial Editing</h1>
+
+    <p class="subtitle">
+      Turning an AI-Assisted Draft Into Publishable Content
+    </p>
+
+    <p class="intro">
+      This exercise demonstrates my approach to reviewing AI-assisted content:
+      checking claims against authoritative sources, identifying unsupported
+      or misleading statements, and editing the content for accuracy,
+      clarity, and concision.
+    </p>
+
+    <div class="note">
+      <strong>Editorial review:</strong>
+      Independent fact-checking and editorial exercise.
+      Sources checked in September 2026.
+    </div>
+
+
+    <!-- ORIGINAL DRAFT -->
+
+    <h2>Original AI Draft</h2>
+
+    <div class="draft">
+
+      <h3>Shopping Online Safely in Australia</h3>
+
+      <p>
+        Online shopping is increasingly popular in Australia, but consumers
+        should be careful when buying from unfamiliar websites.
+      </p>
+
+      <p>
+        In 2025, Australians lost more than $260 million to online shopping
+        scams, making them the country's most financially damaging scam
+        category. More than 12,000 Australians lost money to shopping scams
+        during the year.
+      </p>
+
+      <p>
+        Most shopping scams happen through fake websites, so consumers should
+        never trust a website simply because it looks professional.
+      </p>
+
+      <p>
+        Australian Consumer Law protects online shoppers, and businesses must
+        provide a refund whenever a customer is unhappy with a purchase.
+        This applies even when a customer simply changes their mind.
+      </p>
+
+    </div>
+
+
+    <!-- FACT CHECK -->
+
+    <h2>Fact-Check</h2>
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Draft claim</th>
+            <th>Source check</th>
+            <th>Editorial decision</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>
+              <strong>
+                “Online shopping is increasingly popular in Australia.”
+              </strong>
+            </td>
+
+            <td>
+              <strong>Unsupported.</strong>
+              The draft provides no source for this broad trend claim.
+            </td>
+
+            <td>Removed</td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>
+                “Australians lost more than $260 million to online shopping
+                scams.”
+              </strong>
+            </td>
+
+            <td>
+              <strong>Incorrect.</strong>
+              The ACCC's $259.5 million figure referred to total scam losses
+              reported to Scamwatch between January and September 2025,
+              not shopping scams. Full-year reported shopping-scam losses
+              were $10.8 million.
+            </td>
+
+            <td>Corrected</td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>
+                “Shopping scams were the country's most financially damaging
+                scam category.”
+              </strong>
+            </td>
+
+            <td>
+              <strong>Misleading.</strong>
+              Shopping scams had the highest number of reports involving
+              a financial loss, but investment scams recorded the highest
+              total reported losses in 2025.
+            </td>
+
+            <td>Rewritten</td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>
+                “More than 12,000 Australians lost money to shopping scams.”
+              </strong>
+            </td>
+
+            <td>
+              <strong>Supported.</strong>
+              The ACCC reported 12,248 Australians who reported a loss
+              to shopping scams in 2025.
+            </td>
+
+            <td>Kept</td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>
+                “Most shopping scams happen through fake websites.”
+              </strong>
+            </td>
+
+            <td>
+              <strong>Overstated.</strong>
+              The ACCC identifies online content—including fake websites,
+              advertisements, social media and mobile apps—as common methods
+              used by scammers, but the source does not establish that fake
+              websites account for most shopping scams specifically.
+            </td>
+
+            <td>Rewritten</td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>
+                “Businesses must provide a refund whenever a customer is
+                unhappy with a purchase.”
+              </strong>
+            </td>
+
+            <td>
+              <strong>Incorrect.</strong>
+              Consumer guarantees provide remedies when specific guarantees
+              are not met. A business does not generally have to provide
+              a refund when a customer simply changes their mind.
+            </td>
+
+            <td>Corrected</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- REVISED VERSION -->
+
+    <h2>Revised Version</h2>
+
+    <div class="revised">
+
+      <h3>Shopping Online Safely in Australia</h3>
+
+      <p>
+        In 2025, 12,248 Australians reported losing money to shopping scams,
+        with total reported losses of $10.8 million. More Australians reported
+        financial losses from shopping scams than from any other scam type.
+      </p>
+
+      <p>
+        Scammers use a range of online channels to reach potential victims,
+        including fake websites, advertisements, social media and mobile apps.
+      </p>
+
+      <p>
+        Australian Consumer Law gives consumers certain protections when
+        a product or service does not meet a consumer guarantee. However,
+        those guarantees do not generally entitle a customer to a refund
+        simply because they changed their mind about a purchase.
+      </p>
+
+    </div>
+
+
+    <!-- EDITORIAL DECISIONS -->
+
+    <h2>Editorial Decisions</h2>
+
+    <h3>What I Checked</h3>
+
+    <ul>
+      <li>
+        Whether numerical claims matched the source, category, and reporting
+        period.
+      </li>
+
+      <li>
+        Whether terms such as <strong>“most”</strong> and
+        <strong>“highest”</strong> were supported by the evidence.
+      </li>
+
+      <li>
+        Whether the draft distinguished between the
+        <strong>number of people reporting losses</strong> and the
+        <strong>total dollar value of losses</strong>.
+      </li>
+
+      <li>
+        Whether broad claims were supported by the cited evidence.
+      </li>
+    </ul>
+
+
+    <h3>What I Changed</h3>
+
+    <ul>
+      <li>
+        Corrected the $260 million figure and its scope.
+      </li>
+
+      <li>
+        Distinguished shopping scams by number of reports involving a loss
+        from scam categories by total financial loss.
+      </li>
+
+      <li>
+        Removed an unsupported trend statement.
+      </li>
+
+      <li>
+        Reworked an overgeneralised claim about fake websites.
+      </li>
+
+      <li>
+        Corrected the statement about refunds and change-of-mind purchases.
+      </li>
+
+      <li>
+        Cut repetition and tightened the article without changing its purpose.
+      </li>
+    </ul>
+
+
+    <!-- SOURCES -->
+
+    <h2>Sources</h2>
+
+    <div class="sources">
+
+      <p>
+        <a
+          href="https://www.accc.gov.au/system/files/targeting-scams-report-2025.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Australian Competition and Consumer Commission (ACCC) —
+          <em>
+            Targeting scams: Report of the National Anti-Scam Centre on scams
+            data and activity 2025
+          </em>
+        </a>
+      </p>
+
+      <p>
+        <a
+          href="https://www.accc.gov.au/consumers/problem-with-a-product-or-service-you-bought/repair-replace-refund-cancel"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Australian Competition and Consumer Commission (ACCC) —
+          <em>Repair, replace, refund, cancel</em>
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="footer-note">
+      Portfolio exercise — independent fact-checking and editorial review.
+    </div>
+
+  </main>
+
+</body>
+</html>
