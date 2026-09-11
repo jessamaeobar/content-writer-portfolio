@@ -1122,3 +1122,8 @@ blockquote {
 .tool-icon.logo-fallback .logo-fallback-icon {
     display: block;
 }
+
+.logo {
+    color: var(--text);
+    text-decoration: none;
+}
