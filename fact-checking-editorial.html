@@ -11,230 +11,262 @@
 
   <title>Fact-Checking & Editorial Editing | Jessa Mae Obar</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<link rel="stylesheet" href="style.css">
+  
   <style>
     :root {
-      --text: #1f2937;
-      --heading: #111827;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --surface: #f8fafc;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --success-bg: #f0fdf4;
-      --success-border: #bbf7d0;
-      --table-header: #f3f4f6;
-      --max-width: 960px;
-    }
-
-    * {
-      box-sizing: border-box;
+        --heading: var(--text);
+        --surface: #F3EEE8;
+        --accent-hover: var(--accent-dark);
+        --success-bg: #F3EEE8;
+        --success-border: var(--border);
+        --table-header: #F3EEE8;
+        --max-width: 1050px;
     }
 
     html {
-      scroll-behavior: smooth;
+        scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: var(--text);
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-      line-height: 1.7;
+        background: var(--background);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
     }
 
     main {
-      width: min(92%, var(--max-width));
-      margin: 0 auto;
-      padding: 64px 0 80px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 5px 10px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: var(--surface);
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+        width: min(90%, var(--max-width));
+        margin: 0 auto;
+        padding: 48px 0 80px;
     }
 
     h1,
     h2,
     h3 {
-      margin-top: 0;
-      color: var(--heading);
-      line-height: 1.25;
+        color: var(--text);
+        font-family: "Playfair Display", serif;
+        line-height: 1.25;
+        text-wrap: balance;
     }
 
     h1 {
-      margin-bottom: 12px;
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      letter-spacing: -0.03em;
+        font-size: clamp(36px, 5vw, 54px);
+        margin-bottom: 18px;
     }
 
     h2 {
-      margin-top: 52px;
-      margin-bottom: 20px;
-      font-size: 1.65rem;
+        font-size: clamp(27px, 3vw, 34px);
+        margin-top: 52px;
+        margin-bottom: 20px;
     }
 
     h3 {
-      margin-top: 28px;
-      margin-bottom: 12px;
-      font-size: 1.15rem;
+        font-size: 23px;
+        margin-top: 30px;
+        margin-bottom: 12px;
     }
 
     p {
-      margin: 0 0 18px;
+        margin: 0 0 18px;
+    }
+
+    .eyebrow {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 5px 10px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--accent-dark);
+        font-family: "Inter", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
     }
 
     .subtitle {
-      margin-bottom: 12px;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--heading);
+        margin-bottom: 14px;
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
     }
 
     .intro {
-      max-width: 800px;
-      color: #374151;
-      font-size: 1.05rem;
+        max-width: 800px;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.8;
     }
 
     .note {
-      margin: 28px 0 44px;
-      padding: 18px 20px;
-      border-left: 4px solid var(--accent);
-      border-radius: 8px;
-      background: var(--surface);
-      color: #374151;
+        margin: 28px 0 44px;
+        padding: 22px 24px;
+        border-left: 4px solid var(--accent);
+        border-radius: 0 12px 12px 0;
+        background: var(--surface);
+        color: var(--text);
     }
 
     .draft,
     .revised {
-      padding: 28px;
-      border-radius: 12px;
+        padding: 28px;
+        border: 1px solid var(--border);
+        border-radius: 15px;
     }
 
     .draft {
-      border: 1px solid var(--border);
-      background: #fcfcfd;
+        background: var(--white);
     }
 
     .revised {
-      border: 1px solid var(--success-border);
-      background: var(--success-bg);
+        background: var(--surface);
     }
 
     .draft h3,
     .revised h3 {
-      margin-top: 0;
+        margin-top: 0;
     }
 
     .table-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      margin-top: 20px;
+        width: 100%;
+        overflow-x: auto;
+        margin: 20px 0 26px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--white);
     }
 
     table {
-      width: 100%;
-      min-width: 760px;
-      border-collapse: collapse;
-      font-size: 0.95rem;
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+        font-family: "Inter", sans-serif;
+        font-size: 0.93rem;
     }
 
     th,
     td {
-      padding: 15px;
-      border: 1px solid var(--border);
-      vertical-align: top;
-      text-align: left;
+        padding: 15px;
+        border: 1px solid var(--border);
+        vertical-align: top;
+        text-align: left;
     }
 
     th {
-      background: var(--table-header);
-      color: var(--heading);
-      font-weight: 700;
+        background: var(--table-header);
+        color: var(--text);
+        font-weight: 700;
+    }
+
+    td {
+        color: var(--text);
+        line-height: 1.7;
     }
 
     td strong {
-      color: var(--heading);
+        color: var(--text);
     }
 
     ul {
-      margin: 0;
-      padding-left: 22px;
+        margin: 0 0 24px;
+        padding-left: 24px;
     }
 
     li {
-      margin-bottom: 9px;
+        margin-bottom: 10px;
+        padding-left: 4px;
+        line-height: 1.8;
     }
 
     .sources {
-      margin-top: 18px;
+        margin-top: 18px;
     }
 
     .sources p {
-      margin-bottom: 12px;
+        margin-bottom: 14px;
     }
 
     .sources a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
+        color: var(--accent-dark);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+        overflow-wrap: anywhere;
     }
 
     .sources a:hover {
-      color: var(--accent-hover);
+        color: var(--accent);
     }
 
     .footer-note {
-      margin-top: 52px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.9rem;
+        margin-top: 52px;
+        padding-top: 22px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.9rem;
     }
 
     @media (max-width: 700px) {
-      main {
-        width: 92%;
-        padding-top: 42px;
-      }
+        main {
+            width: 92%;
+            padding-top: 36px;
+        }
 
-      .draft,
-      .revised {
-        padding: 20px;
-      }
+        .draft,
+        .revised {
+            padding: 20px;
+        }
 
-      h1 {
-        font-size: 2.2rem;
-      }
+        h1 {
+            font-size: 36px;
+        }
 
-      h2 {
-        font-size: 1.45rem;
-      }
+        h2 {
+            font-size: 28px;
+        }
+
+        table {
+            min-width: 680px;
+        }
     }
-  </style>
-</head>
-
+</style>
+  
 <body>
 
-  <main>
+<header>
+    <nav class="container" aria-label="Main navigation">
+
+        <a href="index.html" class="logo" style="text-decoration: none;">
+            JESSA MAE OBAR
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#portfolio">Portfolio</a>
+            <a href="index.html#certifications">Certifications</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="assistant.html" class="assistant-nav-link">
+                Ask My Assistant
+            </a>
+        </div>
+
+    </nav>
+</header>
+
+<main>
     <article class="article-content">
 
     <span class="eyebrow">Portfolio Exercise</span>
