@@ -749,8 +749,9 @@ blockquote {
     }
 
     .nav-links {
-        gap: 18px;
-    }
+    gap: 18px;
+    flex-wrap: wrap;
+}
 
     .nav-links a {
         font-size: 14px;
