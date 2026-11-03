@@ -1,263 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="View and download Jessa Mae Obar's professional resume. Content Writer specializing in research, editorial work, copy editing, proofreading, and SEO content.">
-
-    <meta name="author" content="Jessa Mae Obar">
+    <meta
+        name="description"
+        content="Jessa Mae Obar's professional resume, experience, skills, education, and qualifications."
+    >
 
     <title>Resume | Jessa Mae Obar</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Existing Website Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+        /* RESUME PAGE */
+
+        .resume-page {
+            padding-top: 80px;
+            padding-bottom: 90px;
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f7fa;
-            color: #263238;
-            line-height: 1.6;
+        .resume-heading {
+            max-width: 800px;
+            margin-bottom: 45px;
         }
 
-        /* Navigation */
-        nav {
-            background-color: #ffffff;
-            padding: 18px 8%;
+        .resume-heading h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 6vw, 60px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .resume-heading > p:last-of-type {
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        /* RESUME BUTTONS */
+
+        .resume-actions {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .logo {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1e3a5f;
-            text-decoration: none;
-        }
-
-        nav a.back-link {
-            color: #1e3a5f;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        nav a.back-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1100px;
-            margin: 55px auto;
-            padding: 0 20px;
-        }
-
-        .resume-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .resume-header h1 {
-            font-size: 32px;
-            color: #1e3a5f;
-            margin-bottom: 10px;
-        }
-
-        .resume-header p {
-            color: #64748b;
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
-
-        /* Buttons */
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
             flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        .button {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.2s ease;
+        .resume-actions a {
+            text-align: center;
         }
 
-        .primary-button {
-            background-color: #1e3a5f;
-            color: #ffffff;
+        /* RESUME PREVIEW */
+
+        .resume-viewer {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: var(--shadow);
         }
 
-        .primary-button:hover {
-            background-color: #294f7a;
-        }
-
-        .secondary-button {
-            background-color: #ffffff;
-            color: #1e3a5f;
-            border: 1px solid #1e3a5f;
-        }
-
-        .secondary-button:hover {
-            background-color: #edf2f7;
-        }
-
-        /* PDF Viewer */
-        .pdf-container {
-            background-color: #ffffff;
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            margin-top: 35px;
-        }
-
-        iframe {
+        .resume-viewer iframe {
+            display: block;
             width: 100%;
-            height: 850px;
+            height: 1100px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
         }
 
-        .pdf-fallback {
+        .resume-fallback {
             text-align: center;
-            padding: 25px;
-            color: #64748b;
+            color: var(--muted);
             font-size: 14px;
+            padding: 20px 10px 5px;
         }
 
-        .pdf-fallback a {
-            color: #1e3a5f;
+        .resume-fallback a {
+            color: var(--accent-dark);
             font-weight: 600;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 15px;
-            color: #64748b;
-            font-size: 13px;
-            margin-top: 40px;
-        }
+        /* MOBILE */
 
-        footer a {
-            color: #1e3a5f;
-            text-decoration: none;
-        }
-
-        /* Mobile Responsiveness */
         @media (max-width: 768px) {
 
-            nav {
-                padding: 16px 5%;
+            .resume-page {
+                padding-top: 55px;
+                padding-bottom: 65px;
             }
 
-            .container {
-                margin: 35px auto;
+            .resume-actions {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 320px;
             }
 
-            .resume-header h1 {
-                font-size: 26px;
+            .resume-viewer {
+                padding: 8px;
             }
 
-            iframe {
-                height: 650px;
+            .resume-viewer iframe {
+                height: 750px;
             }
 
-            .button {
-                width: 100%;
-                text-align: center;
-            }
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="./index.html" class="logo">
-            Jessa Mae Obar
-        </a>
+    <!-- HEADER / NAVIGATION -->
 
-        <a href="./index.html" class="back-link">
-            ← Back to Portfolio
-        </a>
-    </nav>
+    <header>
 
-    <!-- Resume Section -->
-    <main class="container">
+        <nav class="container" aria-label="Main navigation">
 
-        <section class="resume-header">
+            <a href="index.html" class="logo">
+                JESSA MAE OBAR
+            </a>
 
-            <h1>My Resume</h1>
+            <div class="nav-links">
 
-            <p>
-                Content Writer | Research & Editorial |
-                Copy Editing & Proofreading
-            </p>
+                <a href="index.html#about">About</a>
 
-            <div class="button-group">
+                <a href="index.html#services">Services</a>
 
-                <!-- Download Resume -->
-                <a
-                    href="./Obar_Jessa_Mae_Resume.pdf"
-                    class="button primary-button"
-                    download="Jessa-Mae-Obar-Resume.pdf">
+                <a href="index.html#portfolio">Portfolio</a>
 
-                    ↓ Download Resume (PDF)
+                <a href="resume.html" aria-current="page">Resume</a>
 
-                </a>
+                <a href="index.html#certifications">Certifications</a>
 
-                <!-- Open PDF in New Tab -->
-                <a
-                    href="./Obar_Jessa_Mae_Resume.pdf"
-                    class="button secondary-button"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                <a href="index.html#contact">Contact</a>
 
-                    View PDF in New Tab
-
+                <a href="assistant.html" class="assistant-nav-link">
+                    Ask My Assistant
                 </a>
 
             </div>
 
-        </section>
+        </nav>
 
-        <!-- Embedded PDF Preview -->
-        <section class="pdf-container">
+    </header>
 
-            <iframe
-                src="./Obar_Jessa_Mae_Resume.pdf"
-                title="Jessa Mae Obar - Professional Resume"
-                loading="lazy">
 
-                Your browser does not support embedded PDFs.
+    <!-- MAIN CONTENT -->
 
-                <a href="./Obar_Jessa_Mae_Resume.pdf">
-                    Click here to view my resume.
-                </a>
+    <main>
 
-            </iframe>
+        <section class="section container resume-page">
 
-            <div class="pdf-fallback">
+            <!-- PAGE INTRODUCTION -->
 
-                Having trouble viewing the document?
+            <div class="resume-heading">
 
-                <a href="./Obar_Jessa_Mae_Resume.pdf">
-                    Open or download my resume here.
-                </a>
+                <p class="eyebrow">
+                    PROFESSIONAL PROFILE
+                </p>
+
+                <h1>
+                    My Resume
+                </h1>
+
+                <p>
+                    Explore my professional experience, editorial skills,
+                    education, and qualifications. My background combines
+                    research, content development, editing, proofreading,
+                    and digital content marketing.
+                </p>
+
+
+                <!-- RESUME ACTIONS -->
+
+                <div class="resume-actions">
+
+                    <a
+                        href="./Obar_Jessa_Mae_Resume.pdf"
+                        class="primary-button"
+                        download="Jessa-Mae-Obar-Resume.pdf"
+                    >
+
+                        <i class="fa-solid fa-download"></i>
+                        Download Resume
+
+                    </a>
+
+
+                    <a
+                        href="./Obar_Jessa_Mae_Resume.pdf"
+                        class="secondary-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View in New Tab
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESUME DISPLAY -->
+
+            <div class="resume-viewer">
+
+                <iframe
+                    src="./Obar_Jessa_Mae_Resume.pdf"
+                    title="Jessa Mae Obar's Professional Resume"
+                    loading="lazy"
+                >
+
+                    Your browser does not support embedded PDFs.
+
+                    <a href="./Obar_Jessa_Mae_Resume.pdf">
+                        Open my resume here.
+                    </a>
+
+                </iframe>
+
+
+                <p class="resume-fallback">
+
+                    Having trouble viewing the document?
+
+                    <a
+                        href="./Obar_Jessa_Mae_Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open the PDF directly.
+                    </a>
+
+                </p>
 
             </div>
 
@@ -265,18 +267,26 @@
 
     </main>
 
-    <!-- Footer -->
+
+    <!-- FOOTER -->
+
     <footer>
 
-        <p>
-            © 2026 Jessa Mae Obar. All rights reserved.
-        </p>
+        <div class="container">
 
-        <p>
-            <a href="./index.html">Back to Portfolio</a>
-        </p>
+            <p>
+                © 2026 Jessa Mae Obar | Content Writer • Copywriter
+            </p>
+
+        </div>
 
     </footer>
 
+
+    <!-- EXISTING WEBSITE SCRIPT -->
+
+    <script src="assistant-widget-loader.js"></script>
+
 </body>
+
 </html>
